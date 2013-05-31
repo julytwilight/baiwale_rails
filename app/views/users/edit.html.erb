@@ -19,7 +19,7 @@
 
     <div class="fn-clear">
       <%= f.label "性别" %>
-      <%= f.select(:gender, options_for_select([['男', 1],['女', 0]], @user.gender)) %>
+      <%= f.select(:gender, options_for_select([['男', 1],['女', 0]], @user.gender),{}, { :class => 'my_style_class' }) %>
     </div>
 
     <div class="fn-clear">
