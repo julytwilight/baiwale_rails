@@ -1,0 +1,22 @@
+<%= form_for(@discussion, :url => admin_discussions_path) do |f| %>
+
+  <div class="con_blk">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'txt_field' %>
+  </div>
+
+  <div class="con_blk">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'txt_field' %>
+  </div>
+
+  <div class="con_blk">
+    <%= f.label :summary %>
+    <%= f.text_field :summary, class: 'txt_field' %>
+  </div>
+
+  <div class="con_blk">
+    <%= f.submit '确定', class: 'btn1 fr save' %>
+  </div>
+
+<% end %>

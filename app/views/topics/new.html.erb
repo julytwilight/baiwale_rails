@@ -1,0 +1,48 @@
+<%= stylesheet_link_tag "topics", :media => "all" %>
+
+<%= form_for(@topic) do |f| %>
+  <div class="common-main-left">
+    <!-- New Add -->
+    <div class="m-add-question">
+      <%= f.text_field :title, class: 'title qt', placeholder: 'title' %>
+      <%= f.kindeditor :post, height: '480px', :allowFileManager => false, :editor_id => 'my_editor',
+        :items => ["fontname","fontsize","|","forecolor","hilitecolor","bold","italic","underline","removeformat","|",
+                   "justifyleft","justifycenter","justifyright","insertorderedlist","insertunorderedlist","|",
+                   "emoticons","image","link","baidumap","source"]
+      %>
+    </div>
+  </div>
+
+  <div class="common-right">
+    <div class="discussions_choose">
+      <ul class="discuss-list mt15">
+        <% @discussions.each do |d| %>
+          <li>
+            <%= f.radio_button(:discussion_id, d.id) %>
+            <%= f.label("discussion_id_" + d.id.to_s, d.title) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= f.submit "发布", class: "btn" %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$('form').submit(function(){
+  var post = my_editor.html().replace(/<div id="xunlei_com_thunder_helper_plugin_d462f475-c18e-46be-bd10-327458d045bd">\n<\/div>/,'');
+  $('#topic_post').val(post);
+  if (!$('#topic_post').val()) {
+    alert("请输入内容");
+    return false;
+  };
+  if (!$('#topic_title').val()) {
+    alert("请输入标题");
+    return false;
+  };
+  if (!$("input:radio[name='topic[discussion_id]']:checked").val()) {
+    alert("请选择板块");
+    return false;
+  };
+});
+</script>

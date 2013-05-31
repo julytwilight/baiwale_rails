@@ -1,0 +1,64 @@
+<% provide(:title, '编辑个人资料') %>
+
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<div class='user-info'>
+
+  <%= render 'users/error_messages' %>
+
+  <%= form_for @user, :html => { :multipart => true } do |f| %>
+    <div class="fn-clear">
+      <%= f.label "用户名" %>
+      <%= f.text_field :username, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "地点" %>
+      <%= f.text_field :location, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "性别" %>
+      <%= f.select(:gender, options_for_select([['男', 1],['女', 0]], @user.gender)) %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "上传头像" %>
+      <%= f.file_field :avatar, class: 'file_field txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.submit "提交", class: "btn" %>
+    </div>
+
+  <% end %>
+
+  <div class="password_info">&nbsp;</div>
+  <%= form_for @user, :url => { :controller => 'users', :action => 'modify_password', :id => 1 } do |f| %>
+    <div class="fn-clear">
+      <%= f.label "原密码" %>
+      <input type="password" class="txt_field" name="user[old_password]" id="user_old_password">
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "新密码" %>
+      <%= f.password_field :password, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "重复密码" %>
+      <%= f.password_field :password_confirmation, class: 'txt_field' %>
+    </div>
+    
+    <div class="fn-clear">
+      <%= f.submit "提交", class: "btn" %>
+    </div>
+
+  <% end %>
+
+</div>
+
+
+<div class='user-avatar'>
+  <%= image_tag @user.avatar.url(:medium), class: 'avatar' %>
+</div>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  discussion_id: 1
+  user_id: 1
+  title: MyString
+  post: MyText
+  views_count: 1
+  replies_count: 1
+  votes_count: 1
+  last_replay_user_id: 1
+
+two:
+  discussion_id: 1
+  user_id: 1
+  title: MyString
+  post: MyText
+  views_count: 1
+  replies_count: 1
+  votes_count: 1
+  last_replay_user_id: 1

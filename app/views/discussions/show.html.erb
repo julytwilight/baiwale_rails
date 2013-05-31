@@ -1,0 +1,16 @@
+<!--layout left-->
+<div class="common-left">
+  <ul class="topic-list">
+    <%= render @topics %>
+  </ul>
+  <%= will_paginate @topics %>
+</div>
+
+<!--layout right-->
+<div class="common-right">
+  <ul class="discuss-list mt15">
+    <% @discussions.each do |d| %>
+      <li><span><%= d.topics_count %></span><div><%= link_to d.title, discussion_path(d.name) %></div></li>
+    <% end %>
+  </ul>
+</div>

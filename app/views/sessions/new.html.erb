@@ -1,0 +1,23 @@
+<% provide(:title, '登入') %>
+<%= stylesheet_link_tag "sign", :media => "all" %>
+
+<div class="sign">
+  <h1>登入</h1>
+  
+  <%= form_for(:session, :url => sessions_path) do |f| %>
+    <div class='fn-clear'>
+      <%= f.label '邮箱' %>
+      <%= f.text_field :email, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "密码" %>
+      <%= f.password_field :password, class: 'txt_field' %>
+    </div>
+    
+    <div class="fn-clear">
+      <%= f.submit "登入", class: 'btn btn_in' %>
+    </div>
+  <% end %>
+
+</div>

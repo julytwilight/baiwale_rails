@@ -1,0 +1,9 @@
+<% if @user.errors.any? %>
+  <div class="error_message">
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li>*&nbsp;&nbsp;<%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

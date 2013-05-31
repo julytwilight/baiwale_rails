@@ -1,0 +1,19 @@
+<li class="topic">
+  <div class="fn-clear pdb10">
+    <div class="num">
+      <div class="num-answers votes"><strong><%= topic.replies_count %></strong><span>replies</span></div>
+    </div>
+    <div class="main fn-clear">
+      <div class="user">
+        <%= link_to image_tag(topic.user.avatar.url(:thumb), class: 'avatar'), user_path(topic.user), target: '_blank' %>
+        <%= link_to topic.user.username, user_path(topic.user), target: '_blank' %>
+      </div>
+      <h2><%= link_to topic.title, topic_path(topic), target: '_blank' %></h2>
+      <div class="tag">
+        <%= link_to topic.discussion.title, discussion_path(topic.discussion.name) %>
+        <span><%= topic.views_count %> Views</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><%= topic.replies_count %> Replies</span>
+        <div class="ago fr"><%= time_ago_in_words(topic.created_at) %></div>
+      </div>
+    </div>
+  </div>
+</li>

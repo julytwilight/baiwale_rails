@@ -1,0 +1,50 @@
+<% provide(:title, '注册') %>
+<%= stylesheet_link_tag "sign", :media => "all" %>
+
+<div class="sign">
+  <h1>注册</h1>
+  <%= render 'users/error_messages' %>
+  
+  <%= form_for(@user) do |f| %>
+    <div class='fn-clear'>
+      <%= f.label '邮箱' %>
+      <%= f.text_field :email, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "用户名" %>
+      <%= f.text_field :username, class: 'txt_field' %>
+    </div>
+
+    <div class="fn-clear">
+      <%= f.label "密码" %>
+      <%= f.password_field :password, class: 'txt_field' %>
+    </div>
+    
+    <div class="fn-clear">
+      <%= f.label "确认密码" %>
+      <%= f.password_field :password_confirmation, class: 'txt_field' %>
+    </div>
+    
+    <div class="fn-clear">
+      <%= f.submit "加入我们", class: 'btn' %>
+    </div>
+  <% end %>
+
+</div>
+
+<script type="text/javascript">
+var a = false
+$("form").submit(function(){
+  $("input").each(function(){
+    if($(this).val() == '') {
+      a = true;
+    };
+  });
+  if (a) {
+    alert('请填写完整');
+    a = false
+    return false;
+  };
+});
+</script>

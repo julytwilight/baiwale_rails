@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: 
+  name: 
+  summary: MyString
+  string,: MyString
+  topics_count: MyString
+  integer: MyString
+
+two:
+  title: 
+  name: 
+  summary: MyString
+  string,: MyString
+  topics_count: MyString
+  integer: MyString

@@ -1,0 +1,14 @@
+<table width="100%" class="table_list">
+  <tr>
+    <th width="">编号</th>
+    <th width="">标题</th>
+    <th width="">查看</th>
+  </tr>
+<% @title.each_with_index do |d, i| %>
+  <tr <% if i % 2 == 0 %> class="odd" <% end %>>
+    <td><%= i+1 %></td>
+    <td><%= link_to d, @link[i], target: '_blank' %></td>
+    <td><%= link_to "查看", @link[i], target: '_blank' %></td>
+  </tr>
+<% end %>
+</table>

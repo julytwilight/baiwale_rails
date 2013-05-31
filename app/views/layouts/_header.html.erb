@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="nav w940">
+    <h1 class="title fl"><%= link_to "Baiwale", root_path %></h1>
+    <ul class="fl pl20">
+      <!-- <li><%#= link_to "首页", root_path %></li> -->
+      <li><%= link_to "讨论组", discussions_path %></li>
+    </ul>
+    <ul class="fr">
+      <% if signed_in? %>
+        <li><%= link_to current_user.username, current_user %></li>
+        <!-- <li><a href="#">通知</a></li> -->
+        <li><%= link_to "发帖", new_topic_path %></li>
+        <li><%= link_to "登出", signout_path %></li>
+      <% else %>
+        <li><%= link_to "登入", signin_path %></li>
+        <li><%= link_to "注册", signup_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
