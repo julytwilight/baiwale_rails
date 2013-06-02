@@ -28,4 +28,4 @@ production:
   pool: 5
   username: root
   password: good123
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
