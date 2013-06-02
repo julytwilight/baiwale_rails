@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class TopicsController < ApplicationController
   before_filter :signed_in_user, only: [:new, :create, :replay]
 
