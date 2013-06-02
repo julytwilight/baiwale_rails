@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" },
                              :default_url => "/assets/avatar.png",
                              :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-                             :url => "/system/:attachment/:id/:style/:filename"
-                             :convert_option => { :original => "quality 10" }
+                             :url => "/system/:attachment/:id/:style/:filename",
+                             :convert_options => { :all => "-quality 80" }
 
   before_save { |user| user.email = email.downcase }
 

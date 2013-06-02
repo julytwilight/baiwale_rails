@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 module SessionsHelper
 
   def sign_in(user)
