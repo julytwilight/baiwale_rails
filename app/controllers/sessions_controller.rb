@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 class SessionsController < ApplicationController
   before_filter :do_not_sign, only: [:new, :create]
 
