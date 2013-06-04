@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string  :email,           :null => false, :limit => 90
       t.string  :username,        :null => false, :limit => 90
       t.string  :password_digest, :null => false, :limit => 100
-      t.string  :localtion,       :null => false, :limit => 100
+      t.string  :location,       :null => false, :limit => 100
       t.integer :gender,          :null => false, :default => 0
       t.integer :point,           :null => false, :default => 0
       t.integer :state,           :null => false, :default => 1

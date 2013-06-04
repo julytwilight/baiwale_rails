@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
       self.username = info[:username]
     end
     self.gender = info[:gender]
-    self.localtion = info[:localtion]
+    self.location = info[:location]
     self.save
   end
 
