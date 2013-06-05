@@ -4,7 +4,7 @@ module ApplicationHelper
     if title.empty?
       pre
     else
-      "#{pre} | #{title}"
+      "#{title} | #{pre}"
     end
   end
 end
