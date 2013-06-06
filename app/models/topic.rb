@@ -1,10 +1,17 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :discussion_id, :last_replay_user_id, :post, :replies_count, :title, :user_id, :views_count, :votes_count
+  attr_accessible :discussion_id, :last_replay_user_id, :post, :replies_count, :title, :user_id,
+                  :views_count, :votes_count, :last_reply
 
-    belongs_to :user
-    belongs_to :discussion
+  before_create :set_default_value
 
-    has_many :replies, dependent: :destroy
+  belongs_to :user
+  belongs_to :discussion
 
-    default_scope order: 'topics.updated_at DESC'
+  has_many :replies, dependent: :destroy
+
+  default_scope order: 'topics.last_reply DESC'
+
+  def set_default_value
+    self.last_reply = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+  end
 end
