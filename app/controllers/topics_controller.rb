@@ -41,7 +41,7 @@ class TopicsController < ApplicationController
     @reply.save
     topic = Topic.find(@reply.topic_id)
     topic.replies_count = topic.replies.length
-    topic.last_replay = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    topic.last_reply = Time.now.strftime("%Y-%m-%d %H:%M:%S")
     topic.save
     current_user.replies_count = current_user.replies.length
     current_user.save
